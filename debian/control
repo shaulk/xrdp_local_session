@@ -1,0 +1,27 @@
+Source: xrdp-local-session
+Section: x11
+Priority: optional
+Maintainer: Shaul Kremer <shaulk@users.noreply.github.com>
+Rules-Requires-Root: no
+Build-Depends:
+ debhelper-compat (= 13),
+ dh-sequence-python3,
+ python3-setuptools,
+ python3-all,
+Standards-Version: 4.6.2
+Homepage: https://github.com/shaulk/xrdp_local_session
+Vcs-Browser: https://github.com/shaulk/xrdp_local_session
+Vcs-Git: https://github.com/shaulk/xrdp_local_session.git
+
+Package: xrdp-local-session
+Architecture: all
+Depends:
+ ${python3:Depends}, ${misc:Depends},
+ python3-psutil,
+ sudo,
+ xrdp-local (>= 0.10.4),
+Description: Local client for xrdp providing seamless switching between local and RDP connections - session manager
+ xrdp_local_session is glue code that allows xrdp_local to be used seamlessly in a modern Linux desktop.
+ xrdp_local allows you to connect to local xrdp sessions without using RDP,
+ in effect letting you switch your xrdp session between using the local hardware
+ normally and connecting remotely using RDP.

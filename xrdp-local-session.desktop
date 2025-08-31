@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=XSession
+Exec=/usr/bin/xrdp_local_session
+DesktopNames=xrdp-local-session
+Name=xrdp_local

@@ -8,6 +8,7 @@ setup(
         "typer",
         "dbus-python",
         "pydantic",
+        "psutil",
     ],
     entry_points={
         "console_scripts": [

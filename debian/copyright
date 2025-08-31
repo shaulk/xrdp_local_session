@@ -1,0 +1,10 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Source: https://github.com/shaulk/xrdp-local-session
+Upstream-Name: xrdp-local-session
+Upstream-Contact: Shaul Kremer <shaulk@users.noreply.github.com>
+
+Files:
+ *
+Copyright:
+ 2025 Shaul Kremer <shaulk@users.noreply.github.com>
+License: Apache-2.0
