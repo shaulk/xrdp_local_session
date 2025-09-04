@@ -1,0 +1,9 @@
+FROM ubuntu:jammy
+
+RUN apt-get update && \
+	DEBIAN_FRONTEND=noninteractive apt-get install -y \
+		dpkg-dev \
+		debhelper-compat \
+		dh-sequence-python3 \
+		python3-all \
+		python3-setuptools

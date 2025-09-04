@@ -1,0 +1,18 @@
+FROM fedora:42
+
+RUN dnf install -y \
+		rpm-build \
+		python3 \
+		python3-setuptools
+
+RUN dnf install -y \
+		pyproject-rpm-macros
+
+RUN dnf install -y \
+	python3-devel \
+	python3-packaging \
+	python3-dbus \
+	python3-pydantic \
+	python3-typer \
+	python3-psutil \
+	python3-pip
