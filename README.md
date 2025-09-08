@@ -77,10 +77,10 @@ Get the sources list for your distribution from our
 [repositories page](https://xrdp-local.github.io/repos/) and put it at
 `/etc/apt/sources.list.d/xrdp_local.list`.
 
-Then, run:
+Then install the xrdp-local-session package:
 ```
 apt update
-apt install xrdp_local_session
+apt install xrdp-local-session
 ```
 
 #### Fedora and other Red Hat-based distributions
@@ -90,9 +90,9 @@ Get the sources list for your distribution from our
 [GPG signing key](https://xrdp-local.github.io/repos/GPG-KEY-xrdp-local) and
 put it at `/etc/pki/rpm-gpg/GPG-KEY-xrdp-local`.
 
-Then, run:
+Then install the xrdp-local-session package:
 ```
-dnf install xrdp_local_session
+dnf install xrdp-local-session
 ```
 
 ### Installing manually from packages
