@@ -1,5 +1,5 @@
 Name:           xrdp-local-session
-Version:        0.1
+Version:        0.1.1
 Release:        1%{?dist}
 Summary:        Local client for xrdp providing seamless switching between local and RDP connections - session manager
 

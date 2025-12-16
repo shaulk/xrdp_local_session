@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import json
+from typing import Optional
 from pydantic import BaseModel, Field
 
 # We don't use pydantic-settings or native Pydantic 2.0 configuration because
@@ -34,6 +35,10 @@ class Settings(BaseModel):
 		"sddm-helper",
 		"gdm-session-worker",
 	], description="List of processes to allow when the desktop environment is connected to the wrong logind session")
+
+	local_active_marker_directory: Optional[str] = Field(default=None, description="Directory in which to keep a file marking a connection as active locally")
+	local_active_marker_filename_format: str = Field(default="{username}_{x11_display}", description="Format of the active marker file name")
+	local_active_marker_mandatory: bool = Field(default=False, description="Whether to require no error in creating the active marker")
 
 	@classmethod
 	def load_from_file(cls, path: str) -> Settings:

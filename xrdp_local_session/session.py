@@ -11,6 +11,8 @@ from .common.logind import LogindClient
 from .common.xrdp import SesmanClient, XRDPSession
 from .config import Settings
 from .consts import SYSTEM_CONFIG_FILE
+from .active_marker import ActiveMarker
+
 
 class Main:
 	def __init__(self, settings: Settings, username: Optional[str]=None) -> None:
@@ -19,9 +21,7 @@ class Main:
 			self.logind_client = LogindClient(settings)
 		self.logger = logging.getLogger("xrdp_local_session.core")
 		self._proc: Optional[subprocess.Popen] = None
-		self._username = username
-		if self._username is None:
-			self._username = self._get_current_username()
+		self._username = username or self._get_current_username()
 		self.sesman_client = SesmanClient(self._username)
 
 	def _get_current_username(self) -> str:
@@ -78,12 +78,22 @@ class Main:
 		xrdp_session, is_existing_session = self.get_session()
 		socket_path = self.sesman_client.get_socket_path_for_session(xrdp_session)
 		self._launch_xrdp_local(socket_path, xrdp_session, is_existing_session)
+
 		if self._proc is None:
-			raise RuntimeError("xrdp_local not launched")
-		self.logger.info("xrdp_local launched successfully")
-		if self._proc.wait() != 0:
+			raise RuntimeError("xrdp_local not launched.")
+
+		try:
+			self.logger.info("xrdp_local launched successfully.")
+			with ActiveMarker(self._settings, xrdp_session):
+				return_code = self._proc.wait()
+		except Exception:
+			self._proc.terminate()
+			raise
+
+		if return_code != 0:
 			self.logger.warning("xrdp_local exited with non-zero status %d", self._proc.returncode)
 			return self._proc.returncode, is_existing_session
+
 		self.logger.info("xrdp_local exited with status 0")
 		return 0, is_existing_session
 

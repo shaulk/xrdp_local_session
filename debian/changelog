@@ -1,5 +1,11 @@
+xrdp-local-session (0.1.1-1) UNRELEASED; urgency=medium
+
+  * Add active marker file to track local connections.
+
+ -- Shaul Kremer <shaulk@users.noreply.github.com>  Wed, 17 Dec 2025 00:39:00 +0300
+
 xrdp-local-session (0.1-1) UNRELEASED; urgency=medium
 
-  * Initial release. (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+  * Initial release.
 
- -- Shaul <shaul@unknown>  Thu, 24 Jul 2025 18:56:00 +0300
+ -- Shaul Kremer <shaulk@users.noreply.github.com>  Thu, 24 Jul 2025 18:56:00 +0300

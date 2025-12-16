@@ -1,7 +1,7 @@
 # Maintainer: Shaul Kremer <shaulk@users.noreply.github.com>
 
 pkgname=xrdp-local-session
-pkgver=0.1
+pkgver=0.1.1
 pkgrel=1
 pkgdesc="Local client for xrdp providing seamless switching between local and RDP connections - core"
 url="https://github.com/shaulk/xrdp_local_session"

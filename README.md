@@ -138,6 +138,22 @@ The following options are available:
     general, other than `xrdp_local` itself, it should only contain processes
     that are started implicitly by the system even outside a standard desktop
     environment.
+  - `local_active_marker_directory`: The directory in which to keep a file
+    marking a connection as active locally. If not set, no active marker will
+    be created. If set, the directory must exist and be writable by the user
+    running xrdp_local_session, which usually means chmod 1777 (i.e. world
+    writable with the [sticky bit](https://en.wikipedia.org/wiki/Sticky_bit)
+    set). This defaults to null.
+  - `local_active_marker_filename_format`: The format of the active marker file
+    name. Defaults to `"{username}_{x11_display}"`.
+    The following variables are available:
+    - `username`: The username of the user running the session.
+    - `uid`: The UID of the user running the session.
+    - `x11_display`: The X11 display number of the session.
+    - `logind_session_id`: The systemd-logind session ID of the session.
+  - `local_active_marker_mandatory`: Whether to require no error in creating the
+    active marker. If set, xrdp_local_session will exit with an error if the
+    active marker cannot be created. This defaults to false.
 
 ### Changing the default desktop session
 #### Arch Linux
